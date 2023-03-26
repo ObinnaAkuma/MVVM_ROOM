@@ -1,8 +1,8 @@
-package com.example.mvvmtutorial.Database
+package com.example.mvvmtutorial.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.mvvmtutorial.Models.Note
+import com.example.mvvmtutorial.models.Note
 
 
 @Dao
