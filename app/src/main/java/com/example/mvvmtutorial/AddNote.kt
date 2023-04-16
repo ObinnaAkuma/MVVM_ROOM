@@ -1,5 +1,6 @@
 package com.example.mvvmtutorial
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -17,8 +18,9 @@ class AddNote : AppCompatActivity() {
 
     private lateinit var  note: Note
     private lateinit var old_note: Note
-    var isUpdate = false
+    private var isUpdate = false
 
+    @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -43,7 +45,7 @@ class AddNote : AppCompatActivity() {
 
             if (title.isNotEmpty() || note_desc.isNotEmpty()){
 
-                val formatter = SimpleDateFormat("EEE, d MMM yyyy HH:mn 0")
+                val formatter = SimpleDateFormat("EEE, dd MMM yyyy HH:mm a")
 
                 if (isUpdate){
 

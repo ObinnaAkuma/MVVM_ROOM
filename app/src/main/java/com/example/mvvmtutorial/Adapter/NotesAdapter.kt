@@ -1,5 +1,6 @@
 package com.example.mvvmtutorial.Adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +12,7 @@ import com.example.mvvmtutorial.R
 import com.example.mvvmtutorial.models.Note
 import kotlin.random.Random
 
-class NotesAdapter(private val context: Context, val listener: NotesClickListener) :
+class NotesAdapter(private val context: Context, private val listener: NotesClickListener) :
     RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
 
     private val notesList = ArrayList<Note>()
@@ -48,6 +49,7 @@ class NotesAdapter(private val context: Context, val listener: NotesClickListene
         return notesList.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateList(newList : List<Note>){
         fullList.clear()
         fullList.addAll(newList)
@@ -73,7 +75,7 @@ class NotesAdapter(private val context: Context, val listener: NotesClickListene
     }
 
 
-    fun randomColor() : Int{
+    private fun randomColor() : Int{
 
         val colorList = ArrayList<Int>()
         colorList.add(R.color.NoteColor1)
